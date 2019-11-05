@@ -1,0 +1,9 @@
+table, th, td {
+    border: 10px seashell;
+    padding: 20px;
+    background-color: seagreen;
+}
+
+th {
+    text-align: center;
+}
