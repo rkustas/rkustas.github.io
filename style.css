@@ -92,6 +92,7 @@ img {
     background-color: darkgray;
     text-align: center;
     color: white;
+    border-top: 5px solid lightseagreen;
 }
 
 .message {
