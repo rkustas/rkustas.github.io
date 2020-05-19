@@ -1,6 +1,6 @@
 ## Projects
 
-This is my landing page for all my [Projects](https://github.com/rkustas/rkustas.github.io)  
+This is my landing page for all my [Projects](https://www.rkustas.github.io)  
 
 ### Individual pages
 
