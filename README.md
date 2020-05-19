@@ -1,19 +1,15 @@
-## Welcome to GitHub Pages
+## Projects
 
-You can use the [editor on GitHub](https://github.com/rkustas/rkustas.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is my landing page for all my [Projects](https://github.com/rkustas/rkustas.github.io)  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Individual pages
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Quick access to the links and projects:
 
 ```markdown
 Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+
 
 - Bulleted
 - List
