@@ -12,8 +12,48 @@
     </head>
     <body>
         <div class="wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Me</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Projects
+                                </a>
+                                <div class="dropdown-menu" aria-felabelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Caffeine</a>
+                                <a class="dropdown-item" href="#">Crossfit</a>
+                                <a class="dropdown-item" href="#">Nutrition</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="hero text-center">
+            </div>
             <div class="container-fluid">
-                Testing!
+                <div class="row">
+                    <div class="col-sm-4" id="mypic">
+                        <img src="static/Mypic.JPG">
+                    </div>
+                    <div class="col-md-8" id="homepagedesc">
+                        <h1>Welcome!</h1>
+                        <p>Thank you for visiting the main page of my Project website!  Please visit the social media links below or feel free to visit the links above to view pages dedicated to each particular project.</p>
+                    </div>
+                </div>
+                <footer id="footer" class="row">
+                    <p>Designed by: Ryan Kustas</p>
+                </footer>
             </div>
         </div>
     </body>

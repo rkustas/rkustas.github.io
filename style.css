@@ -1,0 +1,74 @@
+/* Index page */
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color:lightgrey;
+}
+
+* {
+box-sizing: border-box;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.hero {
+position: relative;
+height: 550px;
+padding: 20px;
+margin: 0;
+background: black;
+background-image: url("static/fitnesspic.jpg");
+background-attachment: fixed;
+background-position: bottom center;
+background-size: cover;
+}
+
+.navbar {
+    padding: 5px;
+    margin: 0;
+}
+
+.nav-item {
+    padding: 15px;
+}
+
+.navbar-nav {
+    margin-left: 50%;
+}
+a.nav-link{
+    color: black;
+}
+a.nav-link:hover {
+    color: blue;
+    background-color: whitesmoke;
+    text-decoration: none;
+}
+#mypic img {
+    position: relative;
+    padding: 20px;
+    height: 500px;
+    width: 550px;
+}
+
+#homepagedesc {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    margin: inherit;
+    text-align: center;
+}
+#homepagedesc p {
+    font-size: large;
+}
+
+.row {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#footer.row p {
+    text-align: center;
+}
+
