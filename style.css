@@ -5,19 +5,27 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color:lightgrey;
+  background-color: lightgray;
+  font-size: 1em;
+  font-weight: 200;
+  line-height: 1.7em;
+}
+.wrapper {
+    position: relative;  
 }
 
 * {
-box-sizing: border-box;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.ml-md-auto {
+    margin-left: auto!important;
 }
 
 .hero {
 position: relative;
 height: 550px;
 padding: 20px;
-margin: 0;
 background: black;
 background-image: url("static/fitnesspic.jpg");
 background-attachment: fixed;
@@ -25,50 +33,214 @@ background-position: bottom center;
 background-size: cover;
 }
 
-.navbar {
-    padding: 5px;
-    margin: 0;
-}
-
-.nav-item {
-    padding: 15px;
-}
-
-.navbar-nav {
-    margin-left: 50%;
-}
-a.nav-link{
-    color: black;
-}
-a.nav-link:hover {
-    color: blue;
-    background-color: whitesmoke;
-    text-decoration: none;
-}
 #mypic img {
     position: relative;
     padding: 20px;
-    height: 500px;
-    width: 550px;
+    height: 450px;
+    width: 500px;
+
+}
+
+#mypic {
+    text-align: center;
+}
+
+#inline1 {
+    background: whitesmoke;
+    border-radius: 10px;
 }
 
 #homepagedesc {
-    background-color: whitesmoke;
-    border-radius: 25px;
-    margin: inherit;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
-}
-#homepagedesc p {
-    font-size: large;
+    word-wrap: break-word;
+    margin: inherit;
 }
 
-.row {
+.navbar {
+    background: black;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.navbar-nav {  list-style: none;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    text-align: center;
+}
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
     position: relative;
+}
+
+.fa {
+    height: 30px;
+    width: 50px;
+}
+
+.bd-navbar .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: rgba(255,255,255,.85);
+}
+
+.bd-navbar .navbar-nav .nav-link:hover {
+    color: cadetblue;
+    text-decoration: none;
+}
+
+.bd-navbar .navbar-nav .nav-link:focus {
+    color: cadetblue;
+    text-decoration: none;
+}
+
+
+ .navbar-brand  {  
     display: inline-block;
-    overflow: hidden;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+ }
+
+
+#homepagedesc p {
+    font-size: large;
+    text-align: justify;
 }
 
 #footer.row p {
     text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    padding: 20px;
+}
+
+#footer {
+    padding-top: 20px;
+}
+
+.hero h1 {
+    font-size: 0.1rem;
+    animation: title 1.2s forwards linear;
+    color: whitesmoke;
+  }
+
+#inline2 h1{
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom:30px;
+    margin-top: 0px;
+}
+
+.paragraphs {
+    background: white;
+    padding: 15px;
+}
+
+.hero p {
+    margin-top: 150px;
+    font-size: 2rem;
+    opacity: 0;
+    animation: subtitle 1.2s forwards linear;
+    animation-delay: 1.2s;
+    color: whitesmoke;
+  }
+
+
+@media (max-width: 768px) {
+    #mypic img {
+        width: fit-content;
+        height: fit-content;
+    }
+}
+
+@keyframes title {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      font-size: 7.5rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes subtitle {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+
+/* For the Caffeine pages */
+
+ul.nav a.nav-link{
+    color: cadetblue;
+    text-decoration: none;
+}
+
+ul.nav a.nav-link:hover{
+    background: whitesmoke;
+    border-radius: 25px;
+}
+
+ul.nav a.nav-link:focus{
+    background: whitesmoke;
+    border-radius: 25px;
+}
+
+#collapseExample {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#dataanalysiscaf {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#energydrinkscomp{
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+#codingpic {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+#dataanalysiscaf img {
+    width: 300px;
+    height: 250px;
 }
 
