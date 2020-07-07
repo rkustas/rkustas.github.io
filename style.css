@@ -7,11 +7,15 @@ body {
   margin: 0;
   background-color: lightgray;
   font-size: 1em;
-  font-weight: 200;
+  font-weight: 170;
   line-height: 1.7em;
 }
 .wrapper {
     position: relative;  
+}
+
+h2 {
+    text-decoration: underline;
 }
 
 * {
@@ -20,6 +24,17 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .ml-md-auto {
     margin-left: auto!important;
+}
+
+.card-body {
+    font-size: smaller;
+}
+.panel-heading {
+    font-size: smaller;
+}
+
+.row {
+    display: inline-block;
 }
 
 .hero {
@@ -122,15 +137,16 @@ background-size: cover;
     text-align: justify;
 }
 
-#footer.row p {
+#footer.row {
     text-align: center;
+    width: 100%;
 }
 
 .inline-block {
     display: inline-block;
     vertical-align: top;
     position: relative;
-    padding: 20px;
+    padding: 10px;
 }
 
 #footer {
@@ -243,4 +259,75 @@ ul.nav a.nav-link:focus{
     width: 300px;
     height: 250px;
 }
+
+.panel-default>.panel-heading {
+    background-color:#337ab7;
+    color: whitesmoke;
+    border-radius: 10px;
+    border-color: black;
+
+}
+.panel.panel-default {
+    font-weight: bold;
+    font-size: 15px;
+    width: max-content;
+    height: auto;
+    position: relative;
+    margin: 0;
+    border-radius: 10px;
+    border-color: black;
+}
+
+.filter.list-group-item label {
+    font-size: smaller;
+}
+
+.form-control {
+    text-align: center;
+}
+
+hr {
+    border-top: 3px solid cadetblue;
+}
+
+.col-md-2 {
+    width: auto;
+}
+#float {
+    float: right;
+}
+
+#contents {
+    display: contents;
+}
+
+.col-md-8 {
+    display: contents;
+}
+
+.filter.list-group-item {
+    border-color: black;
+}
+
+.well {
+    border-color: black;
+}
+
+#listitems {
+    text-align: justify;
+}
+
+#prod {
+    text-align: justify;
+}
+
+#color {
+    background-color: lightsteelblue;
+    border: solid;
+}
+
+
+
+
+
 

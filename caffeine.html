@@ -32,7 +32,7 @@
                 </div>
                 <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item">
-                        <a href="https://github.com/rkustas?tab=stars" class="fa fa-github"></a>
+                        <a href="https://github.com/rkustas" class="fa fa-github"></a>
                         <a href="#" class="fa fa-twitter"></a>
                         <a href="https://www.linkedin.com/in/ryan-kustas" class="fa fa-linkedin"></a>
                         <a href="#" class="fa fa-instagram"></a>
@@ -48,20 +48,20 @@
             <div class="container">
                 <div class="row">
                     <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
                             Objectives
                         </a>
                         <a class="btn btn-primary" data-toggle="collapse" href="#dataanalysiscaf" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Analysis
                         </a>
                     </p>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
+                    <div class="collapse show" id="collapseExample">
+                        <div class="card card-body"style="background-color: lightsteelblue;padding: inherit;">
                             <p>
                                 <h2>How much caffeine is too much?</h2>
                             </p>
                             <p>
-                                The primary objective of this assignment was to evaluate the caffeine database and investigate the amount of caffeine in energy drinks and various foods.  What classifies something as having extreme caffeine? According to this source how can we cluster caffeine content, predict categories and give an overall rating for drinks and foods.
+                                The primary objective of this assignment was to evaluate the caffeine database and investigate the amount of caffeine in energy drinks and various foods.  Data visualizations, classifications and k-means clustering were utilized in this project.
                             </p>
                             <div class="inline-block">
                                 <img id="energydrinkscomp" src="static/drink_compilation.jpg">
@@ -75,15 +75,19 @@
                                 <li>Python</li>
                                 <li>Chromedriver</li>
                                 <li>Splinter</li>
-                                <li>MySQL</li>
+                                <li>Sqlite</li>
+                                <li>Matplotlib</li>
+                                <li>Tensorflow</li>
+                                <li>Keras</li>
                             </p>
                         </div>
                     </div>
+                </div>
                     <div class="collapse" id="dataanalysiscaf">
-                        <div class="card card-body">
+                        <div class="card card-body"style="padding: inherit;background-color:lightsteelblue;">
                             <p>
-                                <h2>Exploratory Plots:</h2>
-                                <em>Click for larger view:</em>
+                                <h2>Exploratory Plots</h2>
+                                <em>Click for larger view</em>
                             </p>
                             <div class="inline-block">
                                 <figure>
@@ -120,18 +124,278 @@
                                     </a>
                                 </figure>
                             </div>
-                            <p>
-                                
-                            </p>  
+                        </div>
+                        <hr>
+                        <div id="color">
+                            <div class="row">
+                                <h2>Caffeine Drinks</h2>
+                                <aside class="filters inline-block">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Caffeine and Drink Filters</div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <ul class="list-group" id="filters">
+                                                    <li class="filter list-group-item">
+                                                        <label for="cafstr">Caffeine Strength:</label>
+                                                        <select class="form-control" id="caffeinestr"></select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </aside>
+                                <div class="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="maxcaff">
+                                        <div class="panel-heading">Max Caffeine Content</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="maximumcaff">
+                                                    <div>SELECT A CAFFEINE STRENGTH</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class ="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="mincaff">
+                                        <div class="panel-heading">Min Caffeine Content</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="minimumcaff">
+                                                    <div>SELECT A CAFFEINE STRENGTH</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="avgcaff">
+                                        <div class="panel-heading">Average Caffeine Content</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="averagecaff">
+                                                    <div>SELECT A CAFFEINE STRENGTH</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="drinkcnt">
+                                        <div class="panel-heading">Drink Count</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="drinks">
+                                                    <div>SELECT A CAFFEINE STRENGTH</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <figure id="piechart" class="inline-block"style="background-color:lightcoral;">
+                                <div id="piechart"></div>
+                            </figure>
+                            <figure id="scattercaff"class="inline-block"style="background-color:lightcoral;">
+                                <div id="scattercaff"></div>
+                            </figure>
+                            <div class="topnfilter">
+                                <div class="form-group">
+                                    <ul class="list-group" id="filters">
+                                        <li class="filter list-group-item">
+                                            <label for="cafstr">Show me the top:
+                                            <select class="form-control" id="topn"></select>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <figure class="inline-block"style="background-color:lightcoral;">
+                                <div id="barplotcaffeine" data-num="0">
+
+                                </div>
+                            </figure>
+                        </div>
+                        <hr>
+                        <div id="color">
+                            <div class="row">
+                                <h2>Caffeine, Food and Gum</h2>
+                                    <aside class="filters inline-block"style="float:right">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Food Filter</div>
+                                            <div class="panel-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <ul class="list-group" id="filters">
+                                                            <li class="filter list-group-item">
+                                                                <label for="cafstr">Caffeine Strength:</label>
+                                                                <select class="form-control" id="foodcaff"></select>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </aside>
+                                    <div id="float">
+                                        <div class="inline-block" id="nomargin">
+                                            <div class="panel panel-default" id="drinkcnt">
+                                                <div class="panel-heading">Average Caffeine per MG</div>
+                                                <div class="panel-body">
+                                                    <div class="card">
+                                                        <div class="card-body" id="avgmgfood">
+                                                            <div>SELECT A SERVING SIZE</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <figure id="piechart" class="inline-block"style="background-color:lightcoral;"">
+                                    <div id="piechartfood"></div>
+                                </figure>
+                            </div>
+                            <div class="row">
+                                    <aside class="filters inline-block">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Gum Filter</div>
+                                            <div class="panel-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <ul class="list-group" id="filters">
+                                                            <li class="filter list-group-item">
+                                                                <label for="cafstr">Gum Flavor:</label>
+                                                                <select class="form-control" id="gumcaff"></select>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </aside>
+                                    <div class="inline-block" id="nomargin">
+                                        <div class="panel panel-default" id="drinkcnt">
+                                            <div class="panel-heading">Average Caffeine per Piece</div>
+                                            <div class="panel-body">
+                                                <div class="card">
+                                                    <div class="card-body" id="avgmggum">
+                                                        <div>SELECT A FLAVOR</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-block" id="nomargin">
+                                        <div class="panel panel-default" id="gumcnt">
+                                            <div class="panel-heading">Count</div>
+                                            <div class="panel-body">
+                                                <div class="card">
+                                                    <div class="card-body" id="gums">
+                                                        <div>SELECT A FLAVOR</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inline-block" id="nomargin">
+                                        <div class="panel panel-default" id="gumprc">
+                                            <div class="panel-heading">Average Price per Pack</div>
+                                            <div class="panel-body">
+                                                <div class="card">
+                                                    <div class="card-body" id="price">
+                                                        <div>SELECT A FLAVOR</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="inline-block" id="nomargin">
+                                        <div class="panel panel-default" id="gumprod">
+                                            <div class="panel-heading">Products</div>
+                                            <div class="panel-body">
+                                                <div class="card">
+                                                    <div class="card-body" id="prod">
+                                                        <ul id ="prodnames">SELECT A FLAVOR</ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <figure id="scattergum"class="inline-block"style="background-color:lightcoral;">
+                                    <div id="scattergum"></div>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="color">
+                            <div class="row">
+                            <h2>Caffeine and Supplements</h2>
+                                <aside class="filters inline-block">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Supplement Filter</div>
+                                        <div class="panel-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <ul class="list-group" id="filters">
+                                                        <li class="filter list-group-item">
+                                                            <label for="supp">Serving Size:</label>
+                                                            <select class="form-control" id="suppserv"></select>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-group" id="filters">
+                                                        <li class="filter list-group-item">
+                                                            <label for="supp">Caffeine Source:</label>
+                                                            <select class="form-control" id="caffsource"></select>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <button id="filter-btn" type="button" class="btn btn-default">Filter Results</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </aside>
+                                <div class="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="multfil">
+                                        <div class="panel-heading">Average Per Selection</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="avgsel">
+                                                    <div>SELECT A FILTER</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inline-block" id="nomargin">
+                                    <div class="panel panel-default" id="list">
+                                        <div class="panel-heading">Supplements</div>
+                                        <div class="panel-body">
+                                            <div class="card">
+                                                <div class="card-body" id="listitems">
+                                                    <ul id="listitems">
+                                                    SELECT A FILTER
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <figure id="hist" class="inline-block"style="background-color:lightcoral;">
+                                    <div id="hist"></div>
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
             <div id="footer" class="row">
                 <p><a href="#" class="fa fa-twitter"></a>
                     <a href="https://www.linkedin.com/in/ryan-kustas" class="fa fa-linkedin"></a>
                     <a href="#" class="fa fa-instagram"></a>
-                    <a href="https://github.com/rkustas?tab=stars" class="fa fa-github"></a>
+                    <a href="https://github.com/rkustas" class="fa fa-github"></a>
                 </p>
             </div>
         </div>
@@ -144,6 +408,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
           <!-- D3.js CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
-        <script src="app.js"></script>
+        <script type="text/javascript" src="drinkscaff.js"></script>
+        <script type="text/javascript" src="cafffood.js"></script>
     </body>
 </html>
