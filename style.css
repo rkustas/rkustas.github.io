@@ -61,18 +61,28 @@ background-size: cover;
 }
 
 #inline1 {
-    background: whitesmoke;
-    border-radius: 10px;
+    border: solid cadetblue;
+    border-radius: 1rem;
 }
 
 #homepagedesc {
     background-color:whitesmoke;
-    border-radius: 10px;
+    border-radius: 1rem;
     padding: 20px;
     text-align: center;
     word-wrap: break-word;
     margin: inherit;
 }
+
+#cards {
+    display: flex;
+    text-align: center;
+}
+
+ img.card-img-top {
+     width: 200px;
+     height: 100px;
+ }
 
 .navbar {
     background: black;
@@ -159,16 +169,16 @@ background-size: cover;
     color: whitesmoke;
   }
 
-#inline2 h1{
-    font-style: italic;
-    text-decoration: underline;
-    margin-bottom:30px;
-    margin-top: 0px;
-}
 
-.paragraphs {
+#homepagedesc {
     background: white;
     padding: 15px;
+}
+#inline2 {
+    background-color: white;
+    border: solid cadetblue;
+    padding: 15px;
+    border-radius: 1rem;
 }
 
 .hero p {
@@ -219,24 +229,24 @@ ul.nav a.nav-link{
 
 ul.nav a.nav-link:hover{
     background: whitesmoke;
-    border-radius: 25px;
+    border-radius: 1rem;
 }
 
 ul.nav a.nav-link:focus{
     background: whitesmoke;
-    border-radius: 25px;
+    border-radius: 1rem;
 }
 
 #collapseExample {
     background: whitesmoke;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 #dataanalysiscaf {
     background: whitesmoke;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 1rem;
     text-align: center;
 }
 
@@ -246,6 +256,18 @@ ul.nav a.nav-link:focus{
     position: relative;
 }
 #codingpic {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+#crossfitpic {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+#crossfit2 {
     width: 500px;
     height: 300px;
     position: relative;
@@ -263,7 +285,7 @@ ul.nav a.nav-link:focus{
 .panel-default>.panel-heading {
     background-color:#337ab7;
     color: whitesmoke;
-    border-radius: 10px;
+    border-radius: 1rem;
     border-color: black;
 
 }
@@ -274,7 +296,7 @@ ul.nav a.nav-link:focus{
     height: auto;
     position: relative;
     margin: 0;
-    border-radius: 10px;
+    border-radius: 1rem;
     border-color: black;
 }
 
@@ -324,6 +346,27 @@ hr {
 #color {
     background-color: lightsteelblue;
     border: solid;
+}
+
+/* For the Covid page */
+
+#covid1 {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+#covid2 {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+#dataanalysiscovid {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 1rem;
+    text-align: center;
 }
 
 

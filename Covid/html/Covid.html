@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <title>Covid-19 Analysis</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+                <a class="navbar-brand mr-0 mr-md-2" href="../../index.html" aria-label="Bootstrap">
+                    <img src="../../static/Dumbell2.png" height="30px" width="40px">
+                </a>
+                <div class="navbar-nav-scroll">
+                    <ul class="navbar-nav bd-navbar-nav flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../caffeine.html">Caffeine</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Crossfit/Crossfit.html">Crossfit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Covid</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav ml-md-auto">
+                    <li class="nav-item">
+                        <a href="https://github.com/rkustas" class="fa fa-github"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="https://www.linkedin.com/in/ryan-kustas" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container-fluid">
+                <h1 class="display-4">Covid-19: Trends and in-depth analysis</h1>
+                <p class="lead">Evaluating a Covid-19 dataset created by BING</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                            Objectives
+                        </a>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#dataanalysiscovid" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Analysis
+                        </a>
+                    </p>
+                    <div class="collapse show" id="collapseExample">
+                        <div class="card card-body"style="background-color: lightsteelblue;padding: inherit;">
+                            <p>
+                                <h2>How have we handled Covid-19?</h2>
+                            </p>
+                            <p>
+                              This analysis evaluates a Covid-19 dataset supplied by Bing and provides a Tableau illustrated response that details Covid-19 trends broken down by country,state and county.
+                            </p>
+                            <div class="inline-block">
+                                <img id="covid1" src="../../static/virus1.jpg">
+                            </div> 
+                            <div class="inline-block">
+                                <img id="covid2" src="../../static/facemasks.jpg">
+                            </div>
+                            <p>
+                                <h3>Tools Utilized:</h3>
+                                <li>Jupyter Notebook</li>
+                                <li>Python</li>
+                                <li>MySQL</li>
+                                <li>Tableau</li>
+                                <li>Excel</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="dataanalysiscovid">
+                <div class="card card-body"style="background-color: lightsteelblue;padding: inherit;">
+                <p>
+                    <h2>Tableau Dashboard</h2>
+                </p>
+                    <div id="tableauviz">
+                        <div class='tableauPlaceholder' id='viz1594354697748' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid_results&#47;Covid-19&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Covid_results&#47;Covid-19' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid_results&#47;Covid-19&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594354697748');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.minHeight='2750px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+          <!-- D3.js CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
+        <script type="text/javascript" src="drinkscaff.js"></script>
+        <script type="text/javascript" src="cafffood.js"></script>
+    </body>
+</html>
