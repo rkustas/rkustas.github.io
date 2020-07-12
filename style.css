@@ -11,7 +11,8 @@ body {
   line-height: 1.7em;
 }
 .wrapper {
-    position: relative;  
+    position: relative;
+    display: block;
 }
 
 h2 {
@@ -26,16 +27,12 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     margin-left: auto!important;
 }
 
-.card-body {
-    font-size: smaller;
-}
+
 .panel-heading {
     font-size: smaller;
 }
 
-.row {
-    display: inline-block;
-}
+
 
 .hero {
 position: relative;
@@ -67,22 +64,11 @@ background-size: cover;
 
 #homepagedesc {
     background-color:whitesmoke;
-    border-radius: 1rem;
     padding: 20px;
     text-align: center;
     word-wrap: break-word;
-    margin: inherit;
 }
 
-#cards {
-    display: flex;
-    text-align: center;
-}
-
- img.card-img-top {
-     width: 200px;
-     height: 100px;
- }
 
 .navbar {
     background: black;
@@ -93,6 +79,13 @@ background-size: cover;
     z-index: 1;
 }
 .navbar-nav {  list-style: none;
+}
+
+
+#projects {
+    text-align: center;
+    background-color: black;
+    color: white;
 }
 
 .nav-link {
@@ -107,6 +100,42 @@ background-size: cover;
     margin-bottom: 0;
     list-style: none;
     position: relative;
+}
+
+img.card-img-top {
+    height: 100px;
+    width: 250px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+.card {
+    display: inline-block;
+    border: solid;
+    padding: 20px;
+    border-radius: 1em;
+}
+
+@media (min-width: 576px) {
+    .card-deck {
+        display: flex;
+        flex-flow: row wrap;
+        margin: inherit;
+    }
+}
+
+
+@media (min-width: 576px) {
+    .card-deck .card {
+        flex: 1 0 0%;
+        margin-right: 15px;
+        margin-bottom: 0;
+        margin-left: 15px;
+    }
 }
 
 .fa {
@@ -169,11 +198,6 @@ background-size: cover;
     color: whitesmoke;
   }
 
-
-#homepagedesc {
-    background: white;
-    padding: 15px;
-}
 #inline2 {
     background-color: white;
     border: solid cadetblue;
