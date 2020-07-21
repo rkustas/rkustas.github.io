@@ -128,7 +128,7 @@ d3.json(baseurl+food).then((foodcaff) => {
 d3.json(baseurl+gum).then((gumcaff) => {
     // console.log(gumcaff);
 
-    // Create varible for the gum flavor filter
+    // Create variable for the gum flavor filter
     var filterdgum = d3.select("#gumcaff");
 
 

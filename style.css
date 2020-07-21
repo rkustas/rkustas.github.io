@@ -115,9 +115,7 @@ img.card-img-top {
 
 .card {
     display: inline-block;
-    border: solid;
     padding: 20px;
-    border-radius: 1em;
 }
 
 @media (min-width: 576px) {
@@ -334,6 +332,7 @@ ul.nav a.nav-link:focus{
 
 hr {
     border-top: 3px solid cadetblue;
+    margin: 10px;
 }
 
 .col-md-2 {
@@ -391,6 +390,14 @@ hr {
     padding: 20px;
     border-radius: 1rem;
     text-align: center;
+}
+
+/* Crossfit page */
+
+.tooltip {
+    background: white;
+    border: solid black;
+    padding: 10px;
 }
 
 
