@@ -1,4 +1,4 @@
-d3.csv("/Crossfit/CSVs/Affiliate_info.csv").then(function(datamap) {
+d3.csv("/fitness/CSVs/Affiliate_info.csv").then(function(datamap) {
     console.log(datamap);
     console.log(datamap[0].Longitude);
 
