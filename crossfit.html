@@ -8,6 +8,13 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+        <!-- <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />  -->
         <title>Crossfit Analysis</title>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
@@ -51,7 +58,10 @@
                         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
                             Objectives
                         </a>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#dataanalysiscaf" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#affiliatemap" role="button" aria-expanded="true" aria-controls="collapseExample">
+                            Affiliate Map
+                        </a>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#dataanalysiscaf" role="button" aria-expanded="true" aria-controls="collapseExample">
                             Analysis
                         </a>
                     </p>
@@ -80,39 +90,60 @@
                         </div>
                     </div>
                 </div>
+                <div class="collapse" id="affiliatemap">
+                    <div class ="row">
+                    <hr>
+                        <div id="map">
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <div class="collapse" id="dataanalysiscaf">
-                <hr>
-                <div class="row">
-                    <h2>Athlete Summary</h2>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Number of Athletes</span>
+                    <div id="color">
+                        <div class="card card-body"style="background-color: lightsteelblue;padding: inherit;">
+                            <h2>Athlete Summary</h2>
+                            <div class="filter list-group-item">
+                                <label for="supp">Number of Athletes</label>
+                                <input id="limit" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="filter list-group-item">
+                                <label for="supp">Name:</label>
+                                <select class="form-control form-control-sm" id="selName"></select>
+                            </div>
+                                            <!-- <button id="filter-btn" type="button" class="btn btn-default">Filter Results</button> -->
+                            <div id="athlete-filter"class="inline-flexbox">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Event Data</div>
+                                    <div id="sample-metadata" class="panel-body">
+                                        <p><strong><span id="ID"></span></strong></strong></p>
+                                        <p><strong><span id="name"></span></strong></p>
+                                        <p><strong><span id="judge"></span></strong></p>
+                                        <p><strong><span id="rank"></span></strong></p>
+                                        <p><strong><span id="score"></span></strong></p>
+                                        <p><strong><span id="scoredisplay"></span></strong></p>
+                                        <p><strong><span id="etime"></span></strong></p>
+                                        <p><strong><span id="enumber"></span></strong></p>
+                                        <p><strong><span id="eyear"></span></strong></p>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Competitor Info</div>
+                                    <div id="sample-metadata" class="panel-body">
+                                        <p><strong><span id="age"></span></strong></p>
+                                        <p><strong><span id="weight"></span></strong></p>
+                                        <p><strong><span id="height"></span></strong></p>
+                                        <p><strong><span id="affiliatename"></span></strong></p>
+                                        <p><strong><span id="gender"></span></strong></p>
+                                        <p><strong><span id="status"></span></strong></p>
+                                    </div>
+                                </div>
+                                <div id="compbarchart">
+                                </div>
+                            </div>
+                            <div id="scatternames">
+                            </div>
                         </div>
-                        <input id="limit" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
-                    <div id="athlete-filter">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Name filter:</span>
-                        <select id="selName"></select>
-                        <div id="sample-metadata" class="panel-body">
-                            <p><span id="ID"></span></p>
-                            <p><span id="name"></span></p>
-                            <p><span id="judge"></span></p>
-                            <p><span id="rank"></span></p>
-                            <p><span id="score"></span></p>
-                            <p><span id="scoredisplay"></span></p>
-                            <p><span id="etime"></span></p>
-                            <p><span id="enumber"></span></p>
-                            <p><span id="eyear"></span></p>
-                        </div>
-                    </div>
-                    <div id="scatternames">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div id="map">
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -131,5 +162,7 @@
         <script type="text/javascript" src="Crossfit/JS/plots.js"></script>
         <script type="text/javascript" src="Crossfit/JS/map.js"></script>
         <script type="text/javascript" src="Crossfit/JS/config.js"></script>
+        <!-- Leaflet and JS -->
+        <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>           -->
     </body>
 </html>
