@@ -1,6 +1,6 @@
 // Create variables to reference API
 
-var baseurl = "http://rkcrossfit.herokuapp.com/";
+var baseurl = "https://rkcrossfit.herokuapp.com/";
 var compnames = "/api/v1.0/competitors";
 var byyear = "/api/v1.0/competitors/";
 var eventscore = "/api/v1.0/score/";
