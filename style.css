@@ -434,15 +434,19 @@ hr {
     background: white;
 }
 
-#eventfil {
-    display: grid;
+
+#table-area {
+    background-color: aliceblue;
 }
 
-#yearfil {
-    display: grid;
+.table-head {
+    text-align: center;
 }
 
-
+.table-head:hover {
+    background-color: orangered;
+    opacity: 70%;
+}
 
 
 
