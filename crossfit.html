@@ -106,41 +106,48 @@
                                 <label for="supp">Number of Athletes</label>
                                 <input id="limit" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
+                            <div id="scatternames">
+                            </div>
                             <div class="filter list-group-item">
                                 <label for="supp">Name:</label>
                                 <select class="form-control form-control-sm" id="selName"></select>
                             </div>
-                                            <!-- <button id="filter-btn" type="button" class="btn btn-default">Filter Results</button> -->
-                            <div id="athlete-filter"class="inline-flexbox">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Event Data</div>
-                                    <div id="sample-metadata" class="panel-body">
-                                        <p><strong><span id="ID"></span></strong></strong></p>
-                                        <p><strong><span id="name"></span></strong></p>
-                                        <p><strong><span id="judge"></span></strong></p>
-                                        <p><strong><span id="rank"></span></strong></p>
-                                        <p><strong><span id="score"></span></strong></p>
-                                        <p><strong><span id="scoredisplay"></span></strong></p>
-                                        <p><strong><span id="etime"></span></strong></p>
-                                        <p><strong><span id="enumber"></span></strong></p>
-                                        <p><strong><span id="eyear"></span></strong></p>
+                                <div class="col">
+                                    <div id="table-area" class="table-responsive">
+                                      <table id="cfit-table" class="table table-hover">
+                                        <thead class="thead">
+                                          <tr>
+                                            <th class="table-head">Competitor ID</th>
+                                            <th class="table-head">Name</th>
+                                            <th class="table-head">Judge</th>
+                                            <th class="table-head">Rank</th>
+                                            <th class="table-head">Score</th>
+                                            <th class="table-head">Score Display</th>
+                                            <th class="table-head">Event Time</th>
+                                            <th class="table-head">Event Number</th>
+                                            <th class="table-head">Event Year</th>
+                                            <th class="table-head">Affiliate ID</th>
+                                            <th class="table-head">Affiliate Name</th>
+                                            <th class="table-head">Age</th>
+                                            <th class="table-head">Gender</th>
+                                            <th class="table-head">Height(in)</th>
+                                            <th class="table-head">Region Name</th>
+                                            <th class="table-head">Status</th>
+                                            <th class="table-head">Weight(lbs)</th>
+                                            <th class="table-head">Best Rank</th>
+                                            <th class="table-head">Highest Score</th>
+                                            <th class="table-head">Lowest Score</th>
+                                            <th class="table-head">Average Rank</th>
+                                            <th class="table-head">Average Score</th>
+                                            <th class="table-head">Worst Rank</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                      </table>
                                     </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Competitor Info</div>
-                                    <div id="sample-metadata" class="panel-body">
-                                        <p><strong><span id="age"></span></strong></p>
-                                        <p><strong><span id="weight"></span></strong></p>
-                                        <p><strong><span id="height"></span></strong></p>
-                                        <p><strong><span id="affiliatename"></span></strong></p>
-                                        <p><strong><span id="gender"></span></strong></p>
-                                        <p><strong><span id="status"></span></strong></p>
-                                    </div>
-                                </div>
+                                  </div>
                                 <div id="compbarchart">
                                 </div>
-                            </div>
-                            <div id="scatternames">
                             </div>
                         </div>
                     </div>

@@ -5,8 +5,14 @@ var compnames = "/api/v1.0/competitors";
 var byyear = "/api/v1.0/competitors/";
 var eventscore = "/api/v1.0/score/";
 var yeareventlimit = "/api/v1.0/eventyear/";
+var averages = "api/v1.0/averages/comp/";
 
-// Filter names by top 25 scores
+// Function to format numbers
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
+// Filter names by top scores
 var lowEnd = 1;
 
 // Store highend input variable from html
@@ -56,6 +62,7 @@ highEnd.on('change', limitchange);
             .text(function(d) {
                 return d;
             });
+
 
             // Create scatter chart for number of athletes chosen
             function makeResponsive() {
@@ -146,8 +153,8 @@ highEnd.on('change', limitchange);
                 .offset([-20, 0])
                 .html(function(d) {
                 return (`Competitor name: <strong>${d['Competitor Name']}</strong>
-                    <hr> Event Score: <strong>${d['Event Score']}</strong>
-                    <hr> Event Rank: <strong>${d['Event Rank']}</strong>`);
+                    <hr> Event Score: <strong>${formatNumber(d['Event Score'])}</strong>
+                    <hr> Event Rank: <strong>${formatNumber(d['Event Rank'])}</strong>`);
                 });          
 
                 // Create the tooltip in chartgroup
@@ -177,7 +184,7 @@ highEnd.on('change', limitchange);
                 .attr("x", 0 - (cH/2))
                 .attr("dy","1em")
                 .classed("axis-text", true)
-                .text("Score")
+                .text("Score");
 
             }
             makeResponsive();
@@ -186,88 +193,89 @@ highEnd.on('change', limitchange);
             d3.select(window).on('resize',makeResponsive);
 
 
-            // // Year list
-            // var years = [2018,2019];
-
-            // // Push yearchoice into dropdown
-            // d3.select("#selYear")
-            // .selectAll('option')
-            // .data(years)
-            // .enter()
-            // .append('option')
-            // .text(function(d) {
-            //     return d;
-            // });
-
-
-            // // Event list
-            // var event = [1,2,3,4,5,6];
-
-            // // Push events into dropdown
-            // d3.select("#selEvent")
-            // .selectAll('option')
-            // .data(event)
-            // .enter()
-            // .append('option')
-            // .text(function(d) {
-            //     return d;
-            // });
-
-
             // Filter names variable
             filtervar.on('change', namechange);
             function namechange() {
+
+
+                // Reset html
+                d3.select('tbody').html("");
+
+
                 var filteredName = d3.select('#selName').property('value');
                 // console.log(filteredName);
 
-                // Grab event number
-                // var eventchoice = d3.select('#selEvent').property('value');
-                // console.log(eventchoice);
+                // Table body variable
+                var tablebody = d3.select('tbody');
+                var newrow = tablebody.append('tr');
 
-                // // Grab yearchoice
-                // var yearchoice = d3.select('#selYear').property('value');
-                // console.log(yearchoice);
 
-                // Filter data on name,event,year
+                // Filter data on name
                 var athfil = data.filter(d => d['Competitor Name'] === filteredName);
-                console.log(athfil);
+                // console.log(athfil);
 
+                
+                // Add data to table
+                athfil.forEach((d) => {
+                    console.log(d);
+                
+                    Object.entries(d).forEach(([key,value]) => {
+                        // console.log(key,value);
+                        var dadd = newrow.append('td');
+                        dadd.text(value);
+                    });
+                });
+
+                
                 // Load comp_info
                 comp_info = "api/v1.0/compinfo/"
                 d3.json(baseurl + comp_info + filteredName).then((comp) => {
-                    console.log(comp);
+                    // console.log(comp);
 
-                // Loop through comp data
-                    Object.values(comp).forEach((value) => {
-                        console.log(value.Age);
+                // Key to delete
+                for (var i = 0; i < comp.length; i++) {
+                    delete comp[i]['First Name'];
+                    delete comp[i]['Last Name'];
+                    delete comp[i]['Competitor Id'];
+                    delete comp[i]['Competitor Name']; 
+                }
+                      
+                comp.slice(1).forEach((c) => {
 
-                        // Return competitor info
-                        document.getElementById("age").textContent = "Age:     " + value.Age;
-                        document.getElementById("gender").textContent = "Gender:     " + value.Gender;
-                        document.getElementById("height").textContent = "Height(in):     " + value['Height(in)'];
-                        document.getElementById("weight").textContent = "Weight(lbs):     " + value['Weight(lbs)'];
-                        document.getElementById("affiliatename").textContent = "Affiliate Name:     " + value['Affiliate Name'];
-                        document.getElementById("status").textContent = "Status:     " + value.Status;
-                    })
+                    // Add data to table
+                    Object.entries(c).forEach(([key,value]) => {
+                        // console.log(key,value);
+                        var dadd = newrow.append('td');
+                        dadd.text(value);
+                    });
+                });
 
 
 
-                // Loop through athlete filter data
-                    Object.values(athfil).forEach((value) => {
+                // Call for top averages
+                d3.json(baseurl + averages + filteredName).then((avg) => {
 
-                        // Return data about each filtered athlete
-                        document.getElementById("ID").textContent = "Competitor ID:     " + value['Competitor Id']
-                        document.getElementById("name").textContent = "Competitor Name:     " + value['Competitor Name']
-                        document.getElementById("judge").textContent = "Judge:  " + value['Event Judge']
-                        document.getElementById("rank").textContent = "Rank:    " + value['Event Rank']
-                        document.getElementById("score").textContent = "Event Score:    " + value['Event Score']
-                        document.getElementById("scoredisplay").textContent = "Event Score Display:     " + value['Event Score Display']
-                        document.getElementById("etime").textContent = "Event Time:     " + value['Event Time']
-                        document.getElementById("enumber").textContent = "Event Number:     " + value['Event number']
-                        document.getElementById("eyear").textContent = "Event Year:     " + value['Event year']
+                    // Filter averages list by the name selected
+                    var avgfil = avg.filter(d => d['Competitor Name'] === filteredName);
+                    console.log(avgfil);
+
+                    // Delete unwanted data
+                    for (var i = 0; i < avg.length; i++) {
+                        delete avg[i]['Competitor Name']; 
+                    }
+
+
+                    avgfil.forEach((val) => {
+                        Object.entries(val).forEach(([key,value]) => {
+                            // console.log(key,value);
+                            var dadd = newrow.append('td');
+                            dadd.text(formatNumber(value.toFixed(0)));
+                        });
                     });
 
                 });
-            }
-        });
-    }
+
+            });
+        }
+    });
+}

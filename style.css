@@ -402,9 +402,11 @@ hr {
 /* Crossfit page */
 
 .tooltip {
-    background: white;
+    background:red;
     border: solid black;
     padding: 1rem;
+    opacity: 20%;
+    color: white;
 }
 
 #map {
@@ -423,12 +425,13 @@ hr {
 #sample-metadata {
     text-align: center;
 }
-#scatternames.svg{
-    border: solid black;
-}
 
 #namefil {
     display: grid;
+}
+
+#scatternames svg {
+    background: white;
 }
 
 #eventfil {
@@ -438,6 +441,8 @@ hr {
 #yearfil {
     display: grid;
 }
+
+
 
 
 

@@ -1,7 +1,12 @@
 from app import app
 from flask import render_template, jsonify
-from connect import db
+from connect import client
 import pymongo
+
+# db = client.crossfit
+
+# Initialize db using default mlab database
+db = client.get_default_database()
 
 # Set route
 @app.route("/")
@@ -24,6 +29,7 @@ def home():
         f"/api/v1.0/competitors/averages/ Enter a number to filter top event score<top><br/>"
         f"/api/v1.0/lookup/ Enter a competitor gender(m,f)<gender>/ Enter a competitor limit <limit><br/>"
         f"/api/v1.0/compinfo/ Enter a competitor name <compname><br/>"
+        f"/api/v1.0/averages/comp/ Enter a competitor name <competitor><br/>"
         f"/api/v1.0/affiliates/ List of affiliates"
     )
 
@@ -220,17 +226,16 @@ def averages(top):
             "maxscore":{"$max":"$Event_score"}
             },
         },
-        {"$sort":{"averagerank":pymongo.ASCENDING,
-        "averagescore":pymongo.DESCENDING}},
+        {"$sort":{"Event Score":pymongo.DESCENDING}},
         {"$limit":int(top)},
         { "$project": {
-            "averagerank": { "$round": ["$averagerank",0]},
-            "averagescore" : {"$round": ["$averagescore",0]},
-            "bestrank" : {"$round": ["$bestrank",0]},
-            "worstrank" : {"$round": ["$worstrank",0]},
-            "minscore" : {"$round": ["$minscore",0]},
-            "maxscore" : {"$round": ["$maxscore",0]}
-        }}
+            "averagerank":"$averagerank",
+            "averagescore" : "$averagescore",
+            "bestrank" : "$bestrank",
+            "worstrank" : "$worstrank",
+            "minscore" : "$minscore",
+            "maxscore" : "$maxscore"}
+        }
     ]
     avgs = db.event_data.aggregate(pipeline,allowDiskUse=True)
     avglist = []
@@ -245,6 +250,49 @@ def averages(top):
         avgentry['Highest Score'] = a['maxscore']
         avglist.append(avgentry)
     return jsonify(avglist)
+
+
+@app.route("/api/v1.0/averages/comp/<competitor>")
+def avgpercomp(competitor):
+
+
+    pipeline =[
+        {"$match":{
+            "Competitor_name": str(competitor)
+        }
+        },
+        {"$group":{
+            "_id":"$Competitor_name",
+            "averagerank": {"$avg":"$Event_rank"}, 
+            "averagescore": {"$avg":"$Event_score"},
+            "bestrank": {"$min":"$Event_rank"},
+            "worstrank": {"$max":"$Event_rank"},
+            "minscore":{"$min":"$Event_score"},
+            "maxscore":{"$max":"$Event_score"}
+            },
+        },
+        { "$project": {
+            "averagerank":"$averagerank",
+            "averagescore" : "$averagescore",
+            "bestrank" : "$bestrank",
+            "worstrank" : "$worstrank",
+            "minscore" : "$minscore",
+            "maxscore" : "$maxscore"}
+        }
+    ]
+    avgpercomp = db.event_data.aggregate(pipeline,allowDiskUse=True)
+    avgcomplist = []
+    for a in avgpercomp:
+        avgcompentry = {}
+        avgcompentry['Competitor Name'] = a['_id']
+        avgcompentry['Rank Average'] = a['averagerank']
+        avgcompentry['Score Average'] = a['averagescore']
+        avgcompentry['Best Rank'] = a['bestrank']
+        avgcompentry['Worst Rank'] = a['worstrank']
+        avgcompentry['Lowest Score'] = a['minscore']
+        avgcompentry['Highest Score'] = a['maxscore']
+        avgcomplist.append(avgcompentry)
+    return jsonify(avgcomplist)
 
 
 @app.route("/api/v1.0/lookup/<gender>/<limit>")
