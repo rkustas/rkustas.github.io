@@ -1,4 +1,4 @@
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 certifi==2019.11.28
 gunicorn==20.0.4
 psycopg2==2.8.4
